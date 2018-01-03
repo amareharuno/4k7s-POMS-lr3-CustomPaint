@@ -6,8 +6,8 @@ import android.graphics.PointF;
 
 public class Square extends Figure {
 
-    public Square(PointF origin, int color) {
-        super(origin, color);
+    public Square(PointF origin, int color, float lineWeight) {
+        super(origin, color, lineWeight);
     }
 
     @Override
@@ -18,6 +18,7 @@ public class Square extends Figure {
         float bottom = right - left + top;
         Paint paint = new Paint();
         paint.setColor(getColor());
+        paint.setStrokeWidth(getThickness());
         canvas.drawRect(left, top, right, bottom, paint);
     }
 }

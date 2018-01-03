@@ -1,11 +1,19 @@
 <resources>
-    <string name="app_name">DragAndDraw</string>
+    <string name="app_name">Custom Paint</string>
     <string name="circle">Circle</string>
     <string name="rectangle">Rectangle</string>
     <string name="back_color">Back Color</string>
-    <string name="line_color">Line Color</string>
+    <string name="line_color">Color</string>
     <string name="oval">Oval</string>
     <string name="square">Square</string>
     <string name="line">Line</string>
-    <string name="line_thickness">Толщина линии</string>
+    <string name="line_thickness">Line weight</string>
+    <string name="clear">Clear</string>
+    <string name="open">Open</string>
+    <string name="save">Save</string>
+    <string name="back">Back</string>
+    <string name="permission_storage_success">permitted</string>
+    <string name="permission_storage_failure">permission denied</string>
+    <string name="permission_storage">permission storage</string>
+    <string name="tamam">tamam</string>
 </resources>

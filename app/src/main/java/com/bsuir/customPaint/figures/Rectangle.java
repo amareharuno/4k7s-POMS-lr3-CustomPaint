@@ -6,8 +6,8 @@ import android.graphics.PointF;
 
 public class Rectangle extends Figure {
 
-    public Rectangle(PointF origin, int color) {
-        super(origin, color);
+    public Rectangle(PointF origin, int color, float lineWeight) {
+        super(origin, color, lineWeight);
     }
 
     @Override
@@ -18,6 +18,7 @@ public class Rectangle extends Figure {
         float bottom = Math.max(this.getOrigin().y, this.getCurrent().y);
         Paint paint = new Paint();
         paint.setColor(getColor());
+        paint.setStrokeWidth(getThickness());
         canvas.drawRect(left, top, right, bottom, paint);
     }
 }

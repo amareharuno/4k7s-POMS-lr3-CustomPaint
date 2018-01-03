@@ -1,71 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <com.bsuir.customPaint.DrawingView
         android:id="@+id/drawing_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/linearLayout" />
+        android:layout_above="@+id/scrollView"
+        android:layout_alignParentTop="true" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/linearLayout">
-
-        <Button
-            android:id="@+id/circle_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/circle" />
-
-        <Button
-            android:id="@+id/oval_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/oval" />
-
-        <Button
-            android:id="@+id/square_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/square" />
-
-        <Button
-            android:id="@+id/rectangle_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/rectangle" />
-
-        <Button
-            android:id="@+id/line_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/line" />
-
-        <Button
-            android:id="@+id/line_color_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/line_color" />
-
-        <TextView
-            android:id="@+id/hui"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/line_thickness" />
+    <FrameLayout
+        android:layout_width="24dp"
+        android:layout_height="180dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
 
         <SeekBar
-            android:id="@+id/line_thickness_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/line_weight_bar"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:max="100"
-            android:progress="50" />
+            android:progress="50"
+            android:rotation="270" />
 
-    </LinearLayout>
+    </FrameLayout>
 
+    <HorizontalScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/circle_button"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/circle" />
+
+            <Button
+                android:id="@+id/oval_button"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/oval" />
+
+            <Button
+                android:id="@+id/square_button"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/square" />
+
+            <Button
+                android:id="@+id/rectangle_button"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rectangle" />
+
+            <Button
+                android:id="@+id/line_button"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/line" />
+
+            <Button
+                android:id="@+id/line_color_button"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/line_color" />
+
+            <Button
+                android:id="@+id/clear_button"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/clear" />
+
+            <Button
+                android:id="@+id/back_button"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/back" />
+
+            <Button
+                android:id="@+id/save_button"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/save" />
+        </LinearLayout>
+    </HorizontalScrollView>
 </RelativeLayout>

@@ -17,10 +17,11 @@ import com.bsuir.customPaint.figures.Oval;
 import com.bsuir.customPaint.figures.Rectangle;
 import com.bsuir.customPaint.figures.Square;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DrawingView extends View {
+public class DrawingView extends View implements Serializable {
 
     private Figure mCurrentFigure;
     private FigureType mFigureType;
@@ -36,6 +37,7 @@ public class DrawingView extends View {
         super(context, attrs);
         mFigurePaint = new Paint();
         mFigurePaint.setColor(0x22ff0000);
+        mFigurePaint.setStrokeWidth(5);
         mBackgroundPaint = new Paint();
         mBackgroundPaint.setColor(Color.WHITE);
         mFigureType = FigureType.RECTANGLE;
@@ -80,15 +82,15 @@ public class DrawingView extends View {
     private Figure getFigureByFigureType(PointF current) {
         switch (mFigureType) {
             case CIRCLE:
-                return new Circle(current, mFigurePaint.getColor());
+                return new Circle(current, mFigurePaint.getColor(), mFigurePaint.getStrokeWidth());
             case RECTANGLE:
-                return new Rectangle(current, mFigurePaint.getColor());
+                return new Rectangle(current, mFigurePaint.getColor(), mFigurePaint.getStrokeWidth());
             case OVAL:
-                return new Oval(current, mFigurePaint.getColor());
+                return new Oval(current, mFigurePaint.getColor(), mFigurePaint.getStrokeWidth());
             case SQUARE:
-                return new Square(current, mFigurePaint.getColor());
+                return new Square(current, mFigurePaint.getColor(), mFigurePaint.getStrokeWidth());
             case LINE:
-                return new Line(current, mFigurePaint.getColor());
+                return new Line(current, mFigurePaint.getColor(), mFigurePaint.getStrokeWidth());
             default:
                 return null;
         }
@@ -96,5 +98,9 @@ public class DrawingView extends View {
 
     public Paint getFigurePaint() {
         return mFigurePaint;
+    }
+
+    public List<Figure> getFigures() {
+        return mFigures;
     }
 }

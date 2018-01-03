@@ -6,8 +6,8 @@ import android.graphics.PointF;
 
 public class Line extends Figure {
 
-    public Line(PointF origin, int color) {
-        super(origin, color);
+    public Line(PointF origin, int color, float lineWeight) {
+        super(origin, color, lineWeight);
     }
 
     @Override
@@ -18,6 +18,7 @@ public class Line extends Figure {
         float y2 = getCurrent().y;
         Paint paint = new Paint();
         paint.setColor(getColor());
+        paint.setStrokeWidth(getThickness());
         canvas.drawLine(x1, y1, x2, y2, paint);
     }
 }

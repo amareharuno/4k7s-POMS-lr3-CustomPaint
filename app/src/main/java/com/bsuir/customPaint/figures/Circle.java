@@ -6,8 +6,8 @@ import android.graphics.PointF;
 
 public class Circle extends Figure {
 
-    public Circle(PointF origin, int color) {
-        super(origin, color);
+    public Circle(PointF origin, int color, float lineWeight) {
+        super(origin, color, lineWeight);
     }
 
     @Override
@@ -19,6 +19,7 @@ public class Circle extends Figure {
         double radius = Math.sqrt(Math.pow(Math.abs(x1 - x2), 2) + Math.pow(Math.abs(y1 - y2), 2));
         Paint paint = new Paint();
         paint.setColor(getColor());
+        paint.setStrokeWidth(getThickness());
         canvas.drawCircle(getOrigin().x, getOrigin().y, (float) radius, paint);
     }
 }

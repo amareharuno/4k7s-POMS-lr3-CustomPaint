@@ -6,8 +6,8 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 
 public class Oval extends Figure {
-    public Oval(PointF origin, int color) {
-        super(origin, color);
+    public Oval(PointF origin, int color, float lineWeight) {
+        super(origin, color, lineWeight);
     }
 
     @Override
@@ -18,6 +18,7 @@ public class Oval extends Figure {
         float bottom = Math.max(this.getOrigin().y, this.getCurrent().y);
         Paint paint = new Paint();
         paint.setColor(getColor());
+        paint.setStrokeWidth(getThickness());
         RectF rectF = new RectF(left, top, right, bottom);
         canvas.drawOval(rectF, paint);
     }
