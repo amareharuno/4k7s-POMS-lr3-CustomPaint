@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DragAndDraw</string>
+    <string name="circle">Circle</string>
+    <string name="rectangle">Rectangle</string>
+    <string name="back_color">Back Color</string>
+    <string name="line_color">Line Color</string>
+    <string name="oval">Oval</string>
+    <string name="square">Square</string>
+    <string name="line">Line</string>
+    <string name="line_thickness">Толщина линии</string>
+</resources>
