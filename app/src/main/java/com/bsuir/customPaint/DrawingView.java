@@ -1,4 +1,4 @@
-package com.qwerfghi.draganddraw;
+package com.bsuir.customPaint;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -9,13 +9,13 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.qwerfghi.draganddraw.figures.Circle;
-import com.qwerfghi.draganddraw.figures.Figure;
-import com.qwerfghi.draganddraw.figures.FigureType;
-import com.qwerfghi.draganddraw.figures.Line;
-import com.qwerfghi.draganddraw.figures.Oval;
-import com.qwerfghi.draganddraw.figures.Rectangle;
-import com.qwerfghi.draganddraw.figures.Square;
+import com.bsuir.customPaint.figures.Circle;
+import com.bsuir.customPaint.figures.Figure;
+import com.bsuir.customPaint.figures.FigureType;
+import com.bsuir.customPaint.figures.Line;
+import com.bsuir.customPaint.figures.Oval;
+import com.bsuir.customPaint.figures.Rectangle;
+import com.bsuir.customPaint.figures.Square;
 
 import java.util.ArrayList;
 import java.util.List;

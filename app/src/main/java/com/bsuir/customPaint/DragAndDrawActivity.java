@@ -1,4 +1,4 @@
-package com.qwerfghi.draganddraw;
+package com.bsuir.customPaint;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
-import com.qwerfghi.draganddraw.figures.FigureType;
+import com.bsuir.customPaint.figures.FigureType;
 
 public class DragAndDrawActivity extends AppCompatActivity {
     private DrawingView mDrawingView;

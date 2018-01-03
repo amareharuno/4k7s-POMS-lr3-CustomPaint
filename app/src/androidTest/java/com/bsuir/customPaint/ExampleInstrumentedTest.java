@@ -1,4 +1,4 @@
-package com.qwerfghi.draganddraw;
+package com.bsuir.customPaint;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,12 +1,12 @@
-package com.qwerfghi.draganddraw.figures;
+package com.bsuir.customPaint.figures;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PointF;
+import android.graphics.RectF;
 
-public class Rectangle extends Figure {
-
-    public Rectangle(PointF origin, int color) {
+public class Oval extends Figure {
+    public Oval(PointF origin, int color) {
         super(origin, color);
     }
 
@@ -18,6 +18,7 @@ public class Rectangle extends Figure {
         float bottom = Math.max(this.getOrigin().y, this.getCurrent().y);
         Paint paint = new Paint();
         paint.setColor(getColor());
-        canvas.drawRect(left, top, right, bottom, paint);
+        RectF rectF = new RectF(left, top, right, bottom);
+        canvas.drawOval(rectF, paint);
     }
 }

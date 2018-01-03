@@ -1,4 +1,4 @@
-package com.qwerfghi.draganddraw.figures;
+package com.bsuir.customPaint.figures;
 
 import android.graphics.Canvas;
 import android.graphics.PointF;

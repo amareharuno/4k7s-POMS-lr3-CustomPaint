@@ -1,4 +1,4 @@
-package com.qwerfghi.draganddraw;
+package com.bsuir.customPaint;
 
 import org.junit.Test;
 
