@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -12,7 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Toast;
@@ -55,7 +56,6 @@ public class CustomPaintActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_view);
         mDrawingView = findViewById(R.id.drawing_view);
-        mDrawingView.setDrawingCacheEnabled(true);
         mCircleButton = findViewById(R.id.circle_button);
         mCircleButton.setOnClickListener(view -> mDrawingView.setFigureType(FigureType.CIRCLE));
         mRectangleButton = findViewById(R.id.rectangle_button);
@@ -157,9 +157,6 @@ public class CustomPaintActivity extends AppCompatActivity {
         switch (requestCode) {
             case REQUEST_READ_EXTERNAL_STORAGE:
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                    Toast.makeText(getApplicationContext(),
-//                            getResources().getString(R.string.permission_storage_success),
-//                            Toast.LENGTH_SHORT).show();
                     openImage();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -170,9 +167,6 @@ public class CustomPaintActivity extends AppCompatActivity {
                 break;
             case REQUEST_WRITE_EXTERNAL_STORAGE: {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                    Toast.makeText(getApplicationContext(),
-//                            getResources().getString(R.string.permission_storage_success),
-//                            Toast.LENGTH_SHORT).show();
                     saveImage();
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -205,11 +199,11 @@ public class CustomPaintActivity extends AppCompatActivity {
         File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         try {
             File image = File.createTempFile(imageFileName, ".jpeg", storageDir);
-            mDrawingView.buildDrawingCache();
-            if (mDrawingView.getDrawingCache() != null) {
-                Log.d("log", mDrawingView.getDrawingCache().toString());
-            }
-            mDrawingView.getDrawingCache().compress(Bitmap.CompressFormat.JPEG, 80, new FileOutputStream(image));
+            viewToBitmap(mDrawingView).compress(Bitmap.CompressFormat.JPEG, 80, new FileOutputStream(image));
+            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+            Uri contentUri = Uri.fromFile(image);
+            mediaScanIntent.setData(contentUri);
+            this.sendBroadcast(mediaScanIntent);
             Toast.makeText(getApplicationContext(), "image saved to: " + storageDir, Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -222,5 +216,12 @@ public class CustomPaintActivity extends AppCompatActivity {
         photoPickerIntent.setType("image/*");
         //Запускаем переход с ожиданием обратного результата в виде информации об изображении:
         startActivityForResult(photoPickerIntent, PICK_IMAGE);
+    }
+
+    private Bitmap viewToBitmap(View view) {
+        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        view.draw(canvas);
+        return bitmap;
     }
 }
