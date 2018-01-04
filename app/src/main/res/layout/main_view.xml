@@ -98,6 +98,13 @@
                 android:text="@string/back" />
 
             <Button
+                android:id="@+id/open_button"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/open" />
+
+            <Button
                 android:id="@+id/save_button"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
