@@ -37,7 +37,7 @@ public class DrawingView extends View implements Serializable {
         super(context, attrs);
         mFigurePaint = new Paint();
         mFigurePaint.setColor(0x22ff0000);
-        mFigurePaint.setStrokeWidth(5);
+        mFigurePaint.setStrokeWidth(50);
         mBackgroundPaint = new Paint();
         mBackgroundPaint.setColor(Color.WHITE);
         mFigureType = FigureType.RECTANGLE;
